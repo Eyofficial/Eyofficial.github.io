@@ -26,76 +26,6 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease;
-            max-width: 80%;
-        }
-
-        .container:hover {
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: #333;
-            margin: 0 0 20px 0;
-        }
-
-        p {
-            color: #666;
-            margin: 0 0 30px 0;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-            transform: scale(1.02);
-        }
-
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 50%;
-            }
-        }
-
-        @media (min-width: 1600px) {
-            .container {
-                max-width: 40%;
-            }
-        }
-  <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url("https://api.lolimi.cn/API/tup/xjj.php");
-            background-size: cover;
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
         }
 
         .container:hover {
@@ -132,32 +62,20 @@
             transform: scale(1.02);
         }
     </style>
+</head>
 <body>
     <div class="container">
         <h1>官方群聊</h1>
         <p>♦小鳄鱼官方Q群：☞943281481☜♦</br>♦极品白虎，惊天大瓜，恐怖血腥♦</br>♦恶心重口，多种色游，破解软件♦</br>♦实用软件，软件外挂，同人二创♦</br>♦上百种资源都在小鳄鱼官方群聊♦</p>
-        <button id="joinGroupButton" class="button">加入群聊</button></br></br>
-        
+        <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=45tzwtP9aUpudcx7oO8foHo8K3IntMtn&authKey=tPQ0i7fYbbW99%2Fia8YQpUa6mAh28ajVJRlgc820tZNoDtrKQdUa3WieKRpMuEGrg&noverify=0&group_code=458917144" class="button" target="_blank">加入群聊</a></br></br>
         
         <hr>
         </br>
         <p>Copyright © 2023~2024 EYAPP (王鑫)</p>
         <hr>
         
-        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="QQ Group.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#joinGroupButton').on('click', function() {
-                // 这里的"943281481"是群聊的ID
-                wc.goQQGroup("943281481");
-            });
-        });
-    </script>
-                
 </body>
 </html>
-
