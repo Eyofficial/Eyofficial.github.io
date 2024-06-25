@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function redirectToDirectLink() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var url = urlParams.get('url');
+            var pwd = urlParams.get('pwd');
+
+            // 检查 URL 参数
+            if (!url) {
+                alert('错误：未提供 URL 参数。');
+                return;
+            }
+
+            // 构建请求的 URL
+            var requestUrl = '蓝奏云API.php?url=' + encodeURIComponent(url);
+            if (pwd) {
+                requestUrl += '&pwd=' + encodeURIComponent(pwd);
+            }
+
+            // 发送请求到后端 API 并获取直链
+            fetch(requestUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应错误。');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.code === 200 && data.downUrl) {
+                        var directLink = data.downUrl;
+                        // 直接跳转到直链地址
+                        window.location.href = directLink;
+                    } else {
+                        alert('错误：无法获取直链或发生其他错误。');
+                    }
+                })
+                .catch(error => {
+                    console.error('请求失败:', error);
+                    alert('请求失败，请稍后再试。');
+                });
+        }
+    </script>
+</head>
+<body onload="redirectToDirectLink()">
+</body>
+</html>
