@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+  <script src="js/sweetalert.min.js"></script>
+  <script>
+  swal('注意事项','本站的《中转站&线路二》虽然延迟较低，但遗憾的是，由于移动运营商对我线路二站点实施了DNS污染操作，导致使用“移动运营商”网络的用户无法正常访问该线。为了各大地区的用户们能够顺畅地访问本站线路，我们诚挚建议您采取一些措施，比如部署加速器或代理服务，以确保您的访问体验不受影响。','success');
+  </script>
+  </body>
+<style>
+/* 顶栏样式 */
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #4269EA;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+#logoh {
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+#small-print {
+  font-size: 8px;
+}
+#music-controls {
+  display: flex;
+  align-items: center;
+}
+.music-control {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.expanded {
+  transform: rotate(90deg);
+}
+/* 折叠展开栏样式 */
+#collapse-bar {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 0;
+  height: 41px; /* 折叠展示框高度为41px */
+  background-color: #4269EA;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out, transform 0.3s;
+  z-index: 1000;
+}
+.collapse-bar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+}
+/* 版权信息样式 */
+.copyright {
+  font-size: 12px;
+  color: #666666;
+  position: absolute;
+  bottom: 5px;
+  width: 90%;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="top-bar">
+  <div id="logoh">EY官方 - Website release</div>
+  <div id="music-controls">
+    <span id="toggle-controls" class="music-control">☰</span>
+  </div>
+</div>
+<div id="collapse-bar">
+  <div class="collapse-bar-content">
+    <!-- 播放控件 -->
+    <span id="play" class="music-control">播放</span>
+    <!-- 换歌控件 -->
+    <span id="next-song" class="music-control">换歌</span>
+    <!-- 暂停控件 -->
+    <span id="pause" class="music-control">暂停</span>
+    <!-- 版权信息 -->
+    <div class="copyright">©All Rights Reserved.</div>
+  </div>
+</div>
+<audio id="bgMusic" loop>
+  <source id="musicSrc" src="" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  var bgMusic = document.getElementById('bgMusic');
+  var toggleControls = document.getElementById('toggle-controls');
+  var collapseBar = document.getElementById('collapse-bar');
+  var playBtn = document.getElementById('play');
+  var nextSongBtn = document.getElementById('next-song');
+  var pauseBtn = document.getElementById('pause');
+  var isPlaying = false;
+  var isCollapsed = true;
+
+  // 修复音乐URL
+  var musicUrl = 'https://api.uomg.com/api/rand.music?sort=热歌榜&format=mp3';
+
+  // 页面加载完毕时自动播放音乐
+  document.addEventListener('DOMContentLoaded', function() {
+    nextSong(); // 初始时调用换歌函数以播放音乐
+  });
+
+  // 换歌逻辑
+  function nextSong() {
+    bgMusic.src = musicUrl; // 使用修复后的URL
+    bgMusic.load();
+    bgMusic.play();
+    isPlaying = true;
+  }
+
+  // 切换播放/暂停状态
+  function togglePlayPause() {
+    if (!bgMusic.paused) {
+      bgMusic.pause();
+      isPlaying = false;
+    } else {
+      bgMusic.play();
+      isPlaying = true;
+    }
+  }
+
+  // 绑定点击事件
+  playBtn.addEventListener('click', togglePlayPause);
+  nextSongBtn.addEventListener('click', nextSong);
+  pauseBtn.addEventListener('click', function() {
+    bgMusic.pause();
+    isPlaying = false;
+  });
+
+  // 切换折叠展示框
+  toggleControls.addEventListener('click', function() {
+    isCollapsed = !isCollapsed;
+    if (isCollapsed) {
+      collapseBar.style.width = '0';
+      toggleControls.classList.remove('expanded');
+    } else {
+      collapseBar.style.width = 'auto';
+      toggleControls.classList.add('expanded');
+    }
+  });
+</script>
+</body>
+  <head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="https://files.zohopublic.com.cn/public/workdrive-public/download/6oi1d8ba0c59dfb5f4ffd80aff11f3bddf76a?x-cli-msg=%7B%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%7D" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EY鳄鱼-临时发布页</title>
+  <meta name="keywords" content="EY鳄鱼,EY鳄鱼,EY鳄鱼">
+  <meta name="description" content="EY鳄鱼,EY鳄鱼,EY鳄鱼">
+  <link rel="stylesheet" href="https://cloud.06dn.com/api/v3/share/content/q4WQSW?path=null">
+  <link rel="stylesheet" href="https://cloud.06dn.com/api/v3/share/content/yN36UJ?path=null">
+  <link rel="stylesheet" href="https://cloud.06dn.com/api/v3/share/content/OZY9T6?path=null"/>
+  <script type="text/javascript" src="https://cloud.06dn.com/api/v3/share/content/lldytx?path=null"></script>
+</head>
+<body class="mdui-color-blue" style="background-size:100%;background-repeat:no-repeat; background-image: url('https://cloud.06dn.com/api/v3/share/content/k4BeUX?path=null');background-attachment:fixed;">
+	<div class="box mdui-shadow-3">
+		<h1>临时地址发布页</h1>
+		<p class="mdui-shadow-3" style="font-size: calc(1em - 0.5px);">本页为临时页面，建议收藏<a href="https://rentry.org/eypage" style="text-decoration: underline dotted; color: #add8e6;">永久地址</a>后使用本站</p>
+		<ul class="speedlist">
+			<li>
+				<a href="https://fwin.short.gy/navigation" target="_blank" class="mdui-shadow-3"><strong>中转站&线路一</strong></a>
+				<i class="ms1">线路延迟：<i id="lineMs0">loading…</i></i>
+			</li>
+			<li>
+				<a href="https://eyofficial.github.io/index&1.html" target="_blank" class="mdui-shadow-3"><strong>中转站&线路二</strong></a>
+				<i class="ms1">线路延迟：<i id="lineMs1">loading…</i></i>
+			</li>
+			<li>
+				<a href="https://workdrive.zohopublic.com.cn/folder/7eiy822aed2c09f2e4ae2b9a54e9f543f24d7" target="_blank" class="mdui-shadow-3"><strong>企业云&发布页</strong></a>
+				<i class="ms1">线路延迟：<i id="lineMs2">loading…</i></i>
+			</li>
+			<li>
+				<a href="https://github.com/Eyofficial/Update-Page" target="_blank" class="mdui-shadow-3"><strong>GitHub&发布页</strong></a>
+				<i class="ms1">线路延迟：<i id="lineMs3">loading…</i></i>
+			</li>
+		</ul>
+  
+	</div>
+	<div class="footer mdui-shadow-3">
+		<b>© 2023-2024 EYAPP (王鑫). All rights reserved.</b>
+	</div>
+	
+	
+	<script src="https://cloud.06dn.com/api/v3/share/content/ZONLt1?path=null"></script>
+	<script type="text/javascript" src="https://cloud.06dn.com/api/v3/share/content/RZloc3?path=null"></script>
+</body>
+</html>
